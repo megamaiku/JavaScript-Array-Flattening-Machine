@@ -1,8 +1,12 @@
 // This program will magically take any type of milti-dimensional
 // integer array and convert it into a one-dimensional array of the same type
 
-// Second attempt: Flatten a two-dimensional array:
-// Not sure if the recursion is working right in javascript...arrgg
+// Third attempt: Flatten a two-dimensional array:
+// Okay, back to the basics. After reading more about recursion,
+// I am now more confident that javascript is able to remember
+// the index location of the last array item, before going into a
+// new array (i.e., it's smart enough to know how deep into the
+// rabit hole it's in.)
 
 //WIP
 this.intArray = [1,2,[[3, 4],[5, 6]], 7];
@@ -17,29 +21,20 @@ var currentArrayLength = 0;
 console.log("hello");
 
 function undressArray(currentArray) {
-  // tried a while loop, but the logic just didn't work well...scrap!
   for(var i = 0; i < currentArray.length; i++) {
-  //while (currentArrayLength < (currentArray.length + 1)) {
-    if (currentArray[2] === true){
-      currentArray.pop();
-      i = currentArray.pop();
-      currentArray = currentArray[0];
-    }
-    if(!Array.isArray(currentArray[i])) {
-      this.newIntArray.push(currentArray[i]);
-      console.log(currentArray[i]);
-      //currentArrayLength ++;
-      //i++;
-    }
-    else {
-      //this.indexArray.push(i + 1);
-      // Since I'm not sure if the recursion is "remembering" what index
-      // I'm at, why not record it in a separate array?
+    // let's change up the logic here. Test for true.
+    if(Array.isArray(currentArray[i])) {
       this.intArrayHistory.push([currentArray, (i + 1), true]);
       return undressArray(currentArray[i]);
+
+    }
+    else {
+
+      this.newIntArray.push(currentArray[i]);
+      console.log(currentArray[i]);
+
     }
   }
-  return undressArray(intArrayHistory.pop())
 }
 
-undressArray(this.intArray);
+undressArray(intArray);
