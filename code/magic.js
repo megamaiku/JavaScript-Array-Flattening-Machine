@@ -24,15 +24,11 @@ function undressArray(currentArray) {
   for(var i = 0; i < currentArray.length; i++) {
     // let's change up the logic here. Test for true.
     if(Array.isArray(currentArray[i])) {
-      this.intArrayHistory.push([currentArray, (i + 1), true]);
-      return undressArray(currentArray[i]);
-
+      undressArray(currentArray[i]);
     }
     else {
-
       this.newIntArray.push(currentArray[i]);
       console.log(currentArray[i]);
-
     }
   }
 }
