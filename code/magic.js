@@ -16,31 +16,31 @@ this.newIntArray = [];
 this.consoleBody = document.getElementsByClassName("console");
 console.log("hello");
 
-function undressArray(currentArray) {
-  this.intArray = JSON.parse(document.getElementById("arrayInputBox").value);
+function undressArray() {
+  this.currentArray = JSON.parse(document.getElementById("arrayInputBox").value);
   //currentArray = intArray;
-  for(var i = 0; i < currentArray.length; i++) {
-    // let's change up the logic here. Test for true.
-    if(Array.isArray(currentArray[i])) {
-      undressArray(currentArray[i]);
-    }
-    else {
-      this.newIntArray.push(currentArray[i]);
-      console.log(currentArray[i]);
+  function undressRecursively(currentArray) {
+    for(var i = 0; i < currentArray.length; i++) {
+      // let's change up the logic here. Test for true.
+      if(Array.isArray(currentArray[i])) {
+        undressRecursively(currentArray[i]);
+      }
+      else {
+        this.newIntArray.push(currentArray[i]);
+        console.log(currentArray[i]);
+      }
     }
   }
+  undressRecursively(currentArray);
   //newIntArray.forEach(printNewIntArray);
 
   // print the array to "console" div
   this.consoleBody[0].innerHTML = "[";
   for(var j = 0; j < newIntArray.length; j++) {
     this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML + newIntArray[j];
-    if (j <= (newIntArray[0].length - 1)) {
+    if (j < (newIntArray.length - 1)) {
       this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML + ", ";
     }
-
   }
   this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML + "]";
 }
-
-//undressArray(intArray);
