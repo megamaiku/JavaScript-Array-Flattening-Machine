@@ -13,12 +13,12 @@
 // this.intArray = [1,2,[[3, 4],[5, 6]], 7, [8,[9,[10]], 11, [12, 13]], 14];
 this.intArray = [];
 this.newIntArray = [];
-this.consoleBody = document.getElementsByClassName("console").innerHTML;
+this.consoleBody = document.getElementsByClassName("console");
 console.log("hello");
 
 function undressArray(currentArray) {
-  this.intArray = JSON.parse(document.getElementsByClassName("arrayInputBox").value);
-
+  this.intArray = JSON.parse(document.getElementById("arrayInputBox").value);
+  //currentArray = intArray;
   for(var i = 0; i < currentArray.length; i++) {
     // let's change up the logic here. Test for true.
     if(Array.isArray(currentArray[i])) {
@@ -32,15 +32,15 @@ function undressArray(currentArray) {
   //newIntArray.forEach(printNewIntArray);
 
   // print the array to "console" div
-  this.consoleBody.innerHTML = "[";
+  this.consoleBody[0].innerHTML = "[";
   for(var j = 0; j < newIntArray.length; j++) {
-    this.consoleBody.innerHTML = this.consoleBody.innerHTML + newIntArray[j];
-    if (j != newIntArray.length) {
-      this.consoleBody.innerHTML = this.consoleBody.innerHTML + ", ";
+    this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML + newIntArray[j];
+    if (j <= (newIntArray[0].length - 1)) {
+      this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML + ", ";
     }
 
   }
-  this.consoleBody.innerHTML = "]";
+  this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML + "]";
 }
 
 //undressArray(intArray);
