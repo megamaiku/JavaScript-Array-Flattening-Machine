@@ -9,18 +9,16 @@
 // rabit hole it's in.)
 
 //WIP
-this.intArray = [1,2,[[3, 4],[5, 6]], 7];
-this.newIntArray = [];
-// create an array that holds the sequence, and popit when coming out
-this.indexArray = [];
-this.intArrayHistory = [];
-var currentArray = [];
-var i = 0;
-var currentArrayLength = 0;
 
+// this.intArray = [1,2,[[3, 4],[5, 6]], 7, [8,[9,[10]], 11, [12, 13]], 14];
+this.intArray = [];
+this.newIntArray = [];
+this.consoleBody = document.getElementsByClassName("console").innerHTML;
 console.log("hello");
 
 function undressArray(currentArray) {
+  this.intArray = JSON.parse(document.getElementsByClassName("arrayInputBox").value);
+
   for(var i = 0; i < currentArray.length; i++) {
     // let's change up the logic here. Test for true.
     if(Array.isArray(currentArray[i])) {
@@ -31,6 +29,18 @@ function undressArray(currentArray) {
       console.log(currentArray[i]);
     }
   }
+  //newIntArray.forEach(printNewIntArray);
+
+  // print the array to "console" div
+  this.consoleBody.innerHTML = "[";
+  for(var j = 0; j < newIntArray.length; j++) {
+    this.consoleBody.innerHTML = this.consoleBody.innerHTML + newIntArray[j];
+    if (j != newIntArray.length) {
+      this.consoleBody.innerHTML = this.consoleBody.innerHTML + ", ";
+    }
+
+  }
+  this.consoleBody.innerHTML = "]";
 }
 
-undressArray(intArray);
+//undressArray(intArray);
