@@ -1,0 +1,13 @@
+.console {
+    float: left;
+    width: 800px;
+    height: 600px;
+    background: #000;
+}
+
+.consoleFont {
+    color: #fff;
+    font-family: "Courier New", Courier, monospace;
+    padding: 30px;
+    font-size: 2em;
+}
