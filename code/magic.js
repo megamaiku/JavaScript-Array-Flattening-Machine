@@ -34,9 +34,10 @@ function undressArray() {
     }
       // initial call (triggered by button)
       undressRecursively(currentArray);
-      
+
     // print the the newIntArray to "console" div
-    this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML + "> [";
+    this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML +
+    "> You just transmogrified " + document.getElementById("arrayInputBox").value + " into:<br />[";
     for(var j = 0; j < newIntArray.length; j++) {
       this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML + newIntArray[j];
       if (j < (newIntArray.length - 1)) {
