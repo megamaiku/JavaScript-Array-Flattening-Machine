@@ -13,3 +13,5 @@ I had to give up a lof of "fanciness". Maybe I'll get around to improving the fr
 
 Lastly, I decided to enable the Github Pages option in my repo, so people can see the application and use it live. Take a look: https://megamaiku.github.io/JavaScript-Array-Flattening-Machine/
 
+Developed in Windows and MacOS, using Atom and Chrome Developer Tools.
+
