@@ -1,51 +1,53 @@
 // This program will magically take any type of milti-dimensional
 // integer array and convert it into a one-dimensional array of the same type
+// Created by Mike Reina
 
-// Third attempt: Flatten a two-dimensional array:
-// Okay, back to the basics. After reading more about recursion,
-// I am now more confident that javascript is able to remember
-// the index location of the last array item, before going into a
-// new array (i.e., it's smart enough to know how deep into the
-// rabit hole it's in.)
 
-//WIP
-
-// this.intArray = [1,2,[[3, 4],[5, 6]], 7, [8,[9,[10]], 11, [12, 13]], 14];
+// initiate global variables
 this.intArray = [];
 this.newIntArray = [];
 this.consoleBody = document.getElementsByClassName("console");
-console.log("hello");
 
 function undressArray() {
   try {
-  //this.currentArray = JSON.parse(document.getElementById("arrayInputBox").value);
-  this.currentArray = JSON.parse(document.getElementById("inputDiv").innerHTML);
-  //currentArray = intArray;
-  function undressRecursively(currentArray) {
-    for(var i = 0; i < currentArray.length; i++) {
-      // let's change up the logic here. Test for true.
-      if(Array.isArray(currentArray[i])) {
-        undressRecursively(currentArray[i]);
-      }
-      else {
-        this.newIntArray.push(currentArray[i]);
-        console.log(currentArray[i]);
-      }
+    // Read array from Input box
+    this.currentArray = JSON.parse(document.getElementById("arrayInputBox").value);
+    // If it's not an array, return
+    if (!Array.isArray(currentArray)) {
+      return;
     }
-  }
-    undressRecursively(currentArray);
+    //recursive function: takes an array and undresses...it
+    function undressRecursively(currentArray) {
 
-  // print the array to "console" div
-  this.consoleBody[0].innerHTML = "[";
-  for(var j = 0; j < newIntArray.length; j++) {
-    this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML + newIntArray[j];
-    if (j < (newIntArray.length - 1)) {
-      this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML + ", ";
+      for(var i = 0; i < currentArray.length; i++) {
+        // if an element is an array, then call the function again and go a level deeper
+        if(Array.isArray(currentArray[i])) {
+          undressRecursively(currentArray[i]);
+        }
+        else { // else, push the current element into our newIntArray
+          this.newIntArray.push(currentArray[i]);
+          // for additional tracking and troubleshooting, we'll log the array elements
+          // being pushed
+          console.log(currentArray[i]);
+        }
+      }
     }
+      // initial call (triggered by button)
+      undressRecursively(currentArray);
+      
+    // print the the newIntArray to "console" div
+    this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML + "> [";
+    for(var j = 0; j < newIntArray.length; j++) {
+      this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML + newIntArray[j];
+      if (j < (newIntArray.length - 1)) {
+        this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML + ", ";
+      }
+    }
+    this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML + "]<br />All done. Cowabunga!<br />";
+    document.getElementById("arrayInputBox").value = "";
+    newIntArray = [];
   }
-  this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML + "]";
-}
-catch(err) {
-  this.consoleBody[0].innerHTML = "Whoops! Incorrect format. Please try again." ;
-}
+  catch(err) { // If anything goes wrong, it's most likely that the format is wrong
+    this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML + "Whoops! Incorrect format. Please comply!.<br />" ;
+  }
 }
