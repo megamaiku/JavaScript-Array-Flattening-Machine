@@ -17,7 +17,9 @@ this.consoleBody = document.getElementsByClassName("console");
 console.log("hello");
 
 function undressArray() {
-  this.currentArray = JSON.parse(document.getElementById("arrayInputBox").value);
+  try {
+  //this.currentArray = JSON.parse(document.getElementById("arrayInputBox").value);
+  this.currentArray = JSON.parse(document.getElementById("inputDiv").innerHTML);
   //currentArray = intArray;
   function undressRecursively(currentArray) {
     for(var i = 0; i < currentArray.length; i++) {
@@ -31,8 +33,7 @@ function undressArray() {
       }
     }
   }
-  undressRecursively(currentArray);
-  //newIntArray.forEach(printNewIntArray);
+    undressRecursively(currentArray);
 
   // print the array to "console" div
   this.consoleBody[0].innerHTML = "[";
@@ -43,4 +44,8 @@ function undressArray() {
     }
   }
   this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML + "]";
+}
+catch(err) {
+  this.consoleBody[0].innerHTML = "Whoops! Incorrect format. Please try again." ;
+}
 }
