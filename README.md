@@ -8,4 +8,4 @@ I knew I had to use recursion, and I knew this would be a learning experience--s
 
 Once I figured out how to do it hard-coded, I wanted to add actual funcionality to the code. I went in and added a front-end where a user could input an array (in square notation) and have the flattened array display in the view. I then added some character to the UI by making it look like a terminal window.
 
-Lastly, I decided to enable the Github Pages option in my repo, so people can see the application and use it live. Take a look: https://megamaiku.github.io/JavaScript-Array-Flattening-Tool/ 
+Lastly, I decided to enable the Github Pages option in my repo, so people can see the application and use it live. Take a look: https://megamaiku.github.io/JavaScript-Array-Flattening-Machine/
