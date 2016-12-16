@@ -1,3 +1,9 @@
+.contentWrapper {
+  height: auto;
+  width: auto;
+  bottom: 100px;
+}
+
 h1, h2, h3, h4 {
   text-align: center;
   color: #41403F;
@@ -44,7 +50,7 @@ a {
   position: relative;
   margin: 0 auto;
   font-size: 200%;
-  width: 90%;
+  width: 260px;
   background: #116416;
   color: white;
   border: 3px;
@@ -52,7 +58,7 @@ a {
   border-style: solid;
   outline: none;
   cursor:pointer;
-
+  padding: 0px;
 }
 
 #submitButton:hover {
@@ -62,13 +68,20 @@ a {
 .consoleWrapper {
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 100%;
   background: white;
   top: 170px;
-  bottom: 30px;
+  padding-bottom: 20%;
+
 }
 
 .console {
+  width: 100%;
+  height: 300px;
+  overflow: auto;
+}
+
+.consoleContent {
   display: table;
   top: 2em;
   width: 70%;
@@ -78,8 +91,7 @@ a {
   font-family: "Courier New", Courier, monospace;
   font-size: 2em;
   border-color: grey;
-  margin: 0 auto;
-  align: center;
+  margin: 0 auto auto auto;
   padding: 15px;
   overflow: auto;
 }

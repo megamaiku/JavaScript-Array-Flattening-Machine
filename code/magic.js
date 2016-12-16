@@ -6,7 +6,7 @@
 // initiate global variables
 this.intArray = [];
 this.newIntArray = [];
-this.consoleBody = document.getElementsByClassName("console");
+this.consoleBody = document.getElementsByClassName("consoleContent");
 
 function undressArray() {
   try {
@@ -49,6 +49,6 @@ function undressArray() {
     newIntArray = [];
   }
   catch(err) { // If anything goes wrong, it's most likely that the format is wrong
-    this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML + "Whoops! Incorrect format. Please comply!.<br />" ;
+    this.consoleBody[0].innerHTML = this.consoleBody[0].innerHTML + "> Whoops! Incorrect format. Please comply!<br />" ;
   }
 }
