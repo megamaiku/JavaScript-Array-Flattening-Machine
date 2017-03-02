@@ -1,4 +1,4 @@
-// This program will magically take any type of milti-dimensional
+// This program will magically take any type of multi-dimensional
 // integer array and convert it into a one-dimensional array of the same type
 // Created by Mike Reina
 
